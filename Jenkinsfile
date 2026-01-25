@@ -31,6 +31,7 @@ pipeline {
                 echo "end of stage deploy"
                 sh 'pwd'
                 sh 'ls -la'
+                sh 'whoami'
             }
         }
     }
