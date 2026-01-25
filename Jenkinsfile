@@ -12,7 +12,7 @@ pipeline {
         stage('Second Job - Check if exist MyContainer') {
             steps {
                 script{ 
-                    if sudo docker ps -a | grep -q 'my-container'; then
+                    if sudo docker ps -a | grep -q 'MyContainer'; then
                         echo "exist"
                     else
                         echo "not exist"
