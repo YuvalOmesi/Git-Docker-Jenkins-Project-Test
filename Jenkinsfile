@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'only_master' }
 
     stages {
         stage('First Job - Information') {
