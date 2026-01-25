@@ -11,13 +11,13 @@ pipeline {
 
         stage('Second Job - Check if exist MyContainer') {
             steps {
-                sh (
+                sh '''
                     if docker ps -a | grep -q 'my-container'; then
                         return 1 && echo "1"
                     else
                         return 0 && echo "0"
                     fi
-                )
+                '''
             }
         }
 
