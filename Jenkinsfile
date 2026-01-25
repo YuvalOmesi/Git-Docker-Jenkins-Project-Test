@@ -2,19 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('1-build') {
+        stage('First Job - Information') {
             steps {
-                echo "start build 1"
-                echo "------------ building ------------"
-                echo "end of stage build"
+                echo "------------ Information ------------"
+                echo "end of stage information"
             }
         }
 
-        stage('2-Test') {
+        stage('Second Job - Check if exist MyContainer') {
             steps {
-                echo "start stage 2 Test"
-                echo "------------ Testing ------------"
-                echo "end of stage Test"
+                sh (
+                    if docker ps -a | grep -q 'my-container'; then
+                        return 1 && echo "1"
+                    else
+                        return 0 && echo "0"
+                    fi
+                )
             }
         }
 
