@@ -15,8 +15,13 @@ pipeline {
         stage('Second Job - Check if exist MyContainer') {
             steps {
                 sh '''
+                    docker ps -a
                     if docker ps -a | grep -q 'MyContainer'; then
                         echo "exist"
+                        echo "deleting..."
+                        docker rm MyContainer
+                        echo "deleting complete"
+                        docker ps -a
                     else
                         echo "not exist"
                     fi
