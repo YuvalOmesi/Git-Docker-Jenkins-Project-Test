@@ -6,8 +6,8 @@ pipeline {
             steps {
                 echo "------------ Information ------------"
                 sh 'whoami'
-                #sh 'ls -l /usr/bin/docker || echo "Docker not in /usr/bin"'
-                #sh 'command -v docker || echo "Docker command not found in PATH"'
+                sh 'ls -l /usr/bin/docker || echo "Docker not in /usr/bin"'
+                sh 'command -v docker || echo "Docker command not found in PATH"'
                 echo "end of stage information"
             }
         }
