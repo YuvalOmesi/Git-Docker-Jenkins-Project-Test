@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('First Job - Information') {
             steps {
-                echo "------------ Information ------------"
+                echo "------------ Information2 ------------"
                 sh 'whoami'
                 
                 sh 'ls -l /usr/bin/docker || echo "Docker not in /usr/bin"'
