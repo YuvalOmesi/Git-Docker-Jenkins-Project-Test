@@ -2,6 +2,6 @@ FROM alpine:latest
 
 WORKDIR .
 
-RUN apk update && apk add --no-cache git curl coreutils
+RUN apk update
 
 CMD ["bash"]
