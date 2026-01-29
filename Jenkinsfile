@@ -44,7 +44,7 @@ pipeline {
                 echo "------------ DOCKER1 ------------"
                 }
             }
-        stage(4-check docker again){
+        stage('4-check docker again'){
             agent any
             steps{
                 sh '''
