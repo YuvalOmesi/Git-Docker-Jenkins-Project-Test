@@ -47,6 +47,7 @@ pipeline {
                 }
             }
         stage(4-check docker again){
+            agent any
             steps{
                 sh "docker ps -a"
             }
