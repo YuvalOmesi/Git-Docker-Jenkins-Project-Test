@@ -41,7 +41,7 @@ pipeline {
             }
             
             steps {
-                echo "------------ DOCKER ------------"
+                echo "------------ DOCKER1 ------------"
                 }
             }
         stage(4-check docker again){
