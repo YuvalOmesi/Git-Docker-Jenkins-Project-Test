@@ -31,17 +31,14 @@ pipeline {
         }
 
         stage('3-run DockerFile') {
-            agent any {
-                dockerfile {
-                    filename 'Dockerfile'
-                    reuseNode true
-                }
-            }
+            agent {dockerfile true}
+            
             steps {
                 echo "start stage run docker file"
                 echo "------------ DOCKER ------------"
                 sh 'docker ps -a' 
                 echo "end of stage DOCKER"
+                }
             }
         }
     }
