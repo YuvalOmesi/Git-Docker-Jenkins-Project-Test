@@ -33,8 +33,10 @@ pipeline {
 
         stage('3-run DockerFile') {
             agent {
-                dockerfile 'Dockerfile'
-                dir '.'
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir '.'
+                }
             }
             
             steps {
