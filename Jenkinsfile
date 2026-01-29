@@ -32,12 +32,11 @@ pipeline {
         }
 
         stage('3-run DockerFile') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                    dir '.'
-                    args '--name MyContainer'
-                }
+            sh '''
+                docker build -t myimage .
+                docker run -d --name MyContainer myimage
+                docker ps -a
+            '''
             }
             
             steps {
