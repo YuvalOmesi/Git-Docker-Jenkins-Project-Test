@@ -36,6 +36,7 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile'
                     dir '.'
+                    args '--name MyContainer'
                 }
             }
             
