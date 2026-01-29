@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-WORKDIR /project
+WORKDIR .
 
 RUN apk update && apk add --no-cache git curl coreutils
 
