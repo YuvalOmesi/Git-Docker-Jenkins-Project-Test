@@ -2,4 +2,6 @@ FROM alpine:latest
 
 WORKDIR /project
 
-CMD ['apt update']
+RUN apk update
+
+CMD ["bash"]
