@@ -40,12 +40,16 @@ pipeline {
             }
             
             steps {
-                echo "start stage run docker file"
                 echo "------------ DOCKER ------------"
-                sh "docker ps -a"
+                echo "start stage run docker file"
                 echo "end of stage DOCKER"
                 }
             }
+        stage(4-check docker again){
+            steps{
+                sh "docker ps -a"
+            }
+        }
         }
     }
 
