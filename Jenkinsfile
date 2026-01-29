@@ -30,14 +30,18 @@ pipeline {
             }
         }
 
-        stage('3-deploy') {
+        stage('3-run DockerFile') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir '.'
+                    args '--name MyContainer'
+                }
+            }
             steps {
-                echo "start stage Deploy"
-                echo "------------ Deploy ------------"
-                echo "end of stage deploy"
-                sh 'pwd'
-                sh 'ls -la'
-                sh 'whoami'
+                echo "start stage run docker file"
+                echo "------------ DOCKER ------------"
+                echo "end of stage DOCKER"
             }
         }
     }
