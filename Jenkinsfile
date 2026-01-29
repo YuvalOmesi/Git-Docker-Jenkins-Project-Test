@@ -31,7 +31,9 @@ pipeline {
         }
 
         stage('3-run DockerFile') {
-            agent {dockerfile true}
+            agent {
+                dockerfile 'Dockerfile'
+            }
             
             steps {
                 echo "start stage run docker file"
