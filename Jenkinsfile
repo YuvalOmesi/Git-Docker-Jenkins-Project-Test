@@ -42,8 +42,6 @@ pipeline {
             
             steps {
                 echo "------------ DOCKER ------------"
-                echo "start stage run docker file"
-                echo "end of stage DOCKER"
                 }
             }
         stage(4-check docker again){
