@@ -34,6 +34,7 @@ pipeline {
         stage('3-run DockerFile') {
             agent {
                 dockerfile 'Dockerfile'
+                dir '.'
             }
             
             steps {
