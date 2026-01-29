@@ -49,7 +49,13 @@ pipeline {
         stage(4-check docker again){
             agent any
             steps{
-                sh "docker ps -a"
+                sh '''
+                    whoami
+                    echo $PATH
+                    command -v docker
+                    docker --version
+                    docker ps -a
+                '''
             }
         }
         }
