@@ -42,7 +42,7 @@ pipeline {
             steps {
                 echo "start stage run docker file"
                 echo "------------ DOCKER ------------"
-                sh 'docker ps -a' 
+                sh "docker ps -a"
                 echo "end of stage DOCKER"
                 }
             }
