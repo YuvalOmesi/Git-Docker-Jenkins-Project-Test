@@ -34,7 +34,6 @@ pipeline {
             agent {
                 dockerfile {
                     filename 'Dockerfile'
-                    args '--name MyContainer'
                     reuseNode true
                 }
             }
