@@ -31,7 +31,7 @@ pipeline {
         }
 
         stage('3-run DockerFile') {
-            agent {
+            agent any {
                 dockerfile {
                     filename 'Dockerfile'
                     reuseNode true
