@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent ubuntu2
 
     stages {
         stage('First Job - Information') {
