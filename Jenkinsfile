@@ -4,18 +4,20 @@ pipeline {
     stages {
         stage('First Job - Information') {
             steps {
-                echo "------------ Information2 ------------"
+                echo "------------ Information ------------"
                 sh 'whoami'
                 
                 sh 'ls -l /usr/bin/docker || echo "Docker not in /usr/bin"'
                 sh 'command -v docker || echo "Docker command not found in PATH"'
                 echo "end of stage information"
                 sh "docker ps -a"
+                echo "------------ END Information ------------"
             }
         }
 
         stage('Second Job - Check if exist MyContainer') {
             steps {
+                echo "------------ Second Job ------------"
                 sh '''
                     docker ps -a
                     if docker ps -a | grep -q 'MyContainer'; then
@@ -28,16 +30,19 @@ pipeline {
                         echo "not exist"
                     fi
                 '''
+                echo "------------ END Second Job ------------"
             }
         }
 
         stage('3-run DockerFile') {
+            echo "------------ stage 3 - dockerfile ------------"
             sh '''
                 ls -la
                 docker build -t myimage .
                 docker run -d --name MyContainer myimage
                 docker ps -a
             '''
+            echo "------------ END stage 3 - dockerfile ------------"
             }
             
             steps {
@@ -47,6 +52,7 @@ pipeline {
         stage('4-check docker again'){
             agent any
             steps{
+                echo "------------ stage 4 - checking ------------"
                 sh '''
                     whoami
                     echo $PATH
@@ -54,6 +60,7 @@ pipeline {
                     docker --version
                     docker ps -a
                 '''
+                echo "------------ END stage 4 - checking ------------"
             }
         }
         }
