@@ -33,6 +33,7 @@ pipeline {
 
         stage('3-run DockerFile') {
             sh '''
+                ls -la
                 docker build -t myimage .
                 docker run -d --name MyContainer myimage
                 docker ps -a
