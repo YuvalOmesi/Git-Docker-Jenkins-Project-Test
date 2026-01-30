@@ -35,6 +35,7 @@ pipeline {
         }
 
         stage('3-run DockerFile') {
+            steps {
             echo "------------ stage 3 - dockerfile ------------"
             sh '''
                 ls -la
@@ -44,11 +45,7 @@ pipeline {
             '''
             echo "------------ END stage 3 - dockerfile ------------"
             }
-            
-            steps {
-                echo "------------ DOCKER1 ------------"
-                }
-            }
+        }
         stage('4-check docker again'){
             agent any
             steps{
