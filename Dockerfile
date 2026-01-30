@@ -4,4 +4,4 @@ WORKDIR .
 
 RUN apk update
 
-CMD ["/bin/bash"]
+CMD ["/bin/sh"]
