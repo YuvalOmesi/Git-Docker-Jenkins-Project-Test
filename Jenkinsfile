@@ -16,13 +16,10 @@ pipeline {
                 sh '''
                     docker ps -a
                     if docker ps -a | grep -q 'MyContainer'; then
-                        echo "exist"
-                        echo "deleting..."
-                        docker rm MyContainer
-                        echo "deleting complete"
-                        docker ps -a
+                        echo "the container MyContainer exist"
+                        echo "Goodbye"
                     else
-                        echo "not exist"
+                        echo "not exist --< continue..."
                     fi
                 '''
                 echo "------------ END Second Job ------------"
