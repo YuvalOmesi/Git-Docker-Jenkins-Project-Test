@@ -8,6 +8,7 @@ pipeline {
         stage('First Job - Information') {
             steps {
                 echo "------------ Information ------------"
+                echo "this is your choice: ${params.Choose_File}
                 sh "docker ps -a"
                 echo "------------ END Information ------------"
             }
