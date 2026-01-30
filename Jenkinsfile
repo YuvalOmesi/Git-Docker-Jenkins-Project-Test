@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+      choice choices: ['c.txt', 'py.txt', 'java.txt'], name: 'Choose_File'
+    }
 
     stages {
         stage('First Job - Information') {
