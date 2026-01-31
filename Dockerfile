@@ -9,9 +9,8 @@ RUN apk update
 COPY ${MY_FILE} /app
 
 RUN echo 'hello from docker file'
-RUN whoami
-RUN pwd
-RUN hostname
+
+RUN echo 'your coosen file is: ${MY_FILE}'
 
 RUN ls -la
 
