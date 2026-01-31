@@ -2,7 +2,8 @@ FROM alpine:latest
 
 WORKDIR /app
 
-ENV TESTWORD
+ARG TESTWORD
+ENV TESTWORD = ${TESTWORD}
 
 RUN echo "test = ${TESTWORD}"
 
