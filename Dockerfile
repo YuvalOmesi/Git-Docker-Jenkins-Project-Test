@@ -10,6 +10,8 @@ COPY ${MY_FILE} /app
 
 RUN echo 'hello from docker file'
 
+RUN ls -la
+
 RUN echo /app/MY_FILE
 
 CMD ["/bin/sh"]
