@@ -6,7 +6,7 @@ ARG MY_FILE
 
 RUN apk update
 
-COPY MY_FILE /app
+COPY ${MY_FILE} /app
 
 RUN echo /app/MY_FILE
 
