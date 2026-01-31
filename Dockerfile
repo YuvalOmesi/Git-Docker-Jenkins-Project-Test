@@ -5,7 +5,7 @@ WORKDIR /app
 ARG TESTWORD
 ENV TESTWORD = ${TESTWORD}
 
-RUN echo "test = ${TESTWORD}"
+RUN echo "test=${TESTWORD}"
 
 COPY ${MY_FILE} /app
 
