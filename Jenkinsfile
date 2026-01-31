@@ -34,13 +34,11 @@ pipeline {
         stage('3-run DockerFile') {
             steps {
             echo "------------ stage 3 - dockerfile ------------"
-            sh '''
-                test='${params.Choose_File}'
-                echo test1 = '$test'
-                docker build --build-arg TESTWORD=dddd -t myimage .
+            sh """
+                docker build --build-arg TESTWORD=${params.Choose_File} -t myimage .
                 docker run -d --name MyContainer myimage
                 docker ps -a
-            '''
+            """
             echo "------------ END stage 3 - dockerfile ------------"
             }
         }
