@@ -35,7 +35,7 @@ pipeline {
             steps {
             echo "------------ stage 3 - dockerfile ------------"
             sh '''
-                docker build -t myimage .
+                docker build --build-arg MY_FILE=${params.MY_FILE} -t myimage .
                 docker run -d --name MyContainer myimage
                 docker ps -a
             '''
