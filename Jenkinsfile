@@ -35,8 +35,8 @@ pipeline {
             steps {
             echo "------------ stage 3 - dockerfile ------------"
             sh '''
-                test=${params.Choose_File}
-                echo test1 = $test
+                test='${params.Choose_File}'
+                echo test1 = '$test'
                 docker build --build-arg TESTWORD=dddd -t myimage .
                 docker run -d --name MyContainer myimage
                 docker ps -a
