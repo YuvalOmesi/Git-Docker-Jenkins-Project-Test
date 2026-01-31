@@ -2,9 +2,9 @@ FROM alpine:latest
 
 WORKDIR /app
 
-ENV MY_FILE
+ENV TESTWORD
 
-RUN echo "test = ${MY_FILE}"
+RUN echo "test = ${TESTWORD}"
 
 COPY ${MY_FILE} /app
 
