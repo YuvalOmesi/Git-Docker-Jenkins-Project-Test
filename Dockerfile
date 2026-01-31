@@ -1,13 +1,13 @@
 FROM alpine:latest
 
-WORKDIR .
+WORKDIR /app
 
-ARG MY_FILE = ${MY_FILE} 
+ARG MY_FILE
 
 RUN apk update
 
-COPY MY_FILE
+COPY MY_FILE /app
 
-RUN echo MY_FILE
+RUN echo /app/MY_FILE
 
 CMD ["/bin/sh"]
