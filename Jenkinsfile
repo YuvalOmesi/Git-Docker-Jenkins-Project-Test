@@ -36,7 +36,7 @@ pipeline {
             echo "------------ stage 3 - dockerfile ------------"
             sh '''
                 #!/usr/bin/env bash
-                docker build -t myimage .
+                docker build --build-arg TESTWORD=jjjjjjjjjj -t myimage .
                 docker run -d --name MyContainer myimage
                 docker ps -a
             '''
