@@ -34,9 +34,12 @@ pipeline {
         stage('3-run DockerFile') {
             steps {
             echo "------------ stage 3 - dockerfile ------------"
+            sh '''
+                printf 'RAW=[%q]\n' "${Choose_File}"
+            '''
+            sh 'echo ">>>${params.Choose_File}<<<"'
+            sh 'printf "RAW=[%q]\\n" "${params.Choose_File}"'
             sh """
-                sh 'echo ">>>${params.Choose_File}<<<"'
-                sh 'printf "RAW=[%q]\\n" "${params.Choose_File}"'
                 docker build --build-arg TESTWORD=${params.Choose_File} -t myimage .
                 docker run -d --name MyContainer myimage
                 docker ps -a
