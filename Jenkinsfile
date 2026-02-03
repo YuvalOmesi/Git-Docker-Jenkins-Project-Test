@@ -34,11 +34,6 @@ pipeline {
         stage('3-run DockerFile') {
             steps {
             echo "------------ stage 3 - dockerfile ------------"
-            sh '''
-                echo "START"
-                echo "${Choose_File}" | od -An -t c
-                echo "END"
-            '''
             sh """
                 docker build --build-arg TESTWORD=${params.Choose_File} -t myimage .
                 docker run -d --name MyContainer myimage
