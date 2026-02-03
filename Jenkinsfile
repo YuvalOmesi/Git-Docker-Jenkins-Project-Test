@@ -9,6 +9,10 @@ pipeline {
             steps {
                 echo "------------ Information ------------"
                 echo "this is your choice: ${params.Choose_File}"
+                echo "this is build number: ${BUILD_NUMBER}"
+                echo "this is build id: ${BUILD_ID}"
+                echo "this is JOB NAME: ${JOB_NAME}"
+                echo "this is JOB NAME: ${JOB_NAME}"
                 sh "docker ps -a"
                 echo "------------ END Information ------------"
             }
@@ -53,5 +57,11 @@ pipeline {
             }
         }
         }
+    post {
+    success {
+        echo "Total duration: ${currentBuild.durationString}"
+        }
     }
+
+}
 
