@@ -29,7 +29,7 @@ pipeline {
                     if docker ps -a | grep -q 'MyContainer'; then
                         echo "the container MyContainer exist"
                         echo "Goodbye"
-                        ${docker_exist}='true'
+                        env.docker_exist='true'
                         exit 1
                     else
                         echo "not exist --> continue..."
