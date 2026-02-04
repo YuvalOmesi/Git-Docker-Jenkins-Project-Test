@@ -66,12 +66,11 @@ pipeline {
         script{
             if (env.docker_exist=='true'){
                 echo "post always is run"
+            }
         }
     }
     success {
         echo "Total duration: ${currentBuild.durationString}"
+            }
         }
     }
-
-}
-
