@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        docker_exist='false'
+        DOCKEREXSIST='false'
     }
     parameters {
       choice choices: ['c.txt', 'py.txt', 'java.txt'], name: 'Choose_File'
@@ -29,7 +29,7 @@ pipeline {
                     if docker ps -a | grep -q 'MyContainer'; then
                         echo "the container MyContainer exist"
                         echo "Goodbye"
-                        env.docker_exist='true'
+                        env.DOCKEREXSIST='true'
                         exit 1
                     else
                         echo "not exist --> continue..."
@@ -64,7 +64,7 @@ pipeline {
     post {
     always {
         script{
-            if (env.docker_exist=='true'){
+            if (env.DOCKEREXSIST=='true'){
                 echo "post always is run"
             }
         }
