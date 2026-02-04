@@ -29,12 +29,12 @@ pipeline {
                     if docker ps -a | grep -q 'MyContainer'; then
                         echo "the container MyContainer exist"
                         echo "Goodbye"
-                        env.DOCKEREXSIST='true'
                         exit 1
                     else
                         echo "not exist --> continue..."
                     fi
                 '''
+                env.DOCKEREXSIST='true'
                 echo "------------ END Second Job ------------"
             }
         }
