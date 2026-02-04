@@ -34,7 +34,6 @@ pipeline {
                         echo "not exist --> continue..."
                     fi
                 '''
-                env.DOCKEREXSIST='true'
                 echo "------------ END Second Job ------------"
             }
         }
