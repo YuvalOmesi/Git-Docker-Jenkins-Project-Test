@@ -64,7 +64,7 @@ pipeline {
     post {
     always {
         script{
-            if (env.docker_exist)=='true'{
+            if (env.docker_exist=='true'){
                 echo "post always is run"
         }
     }
