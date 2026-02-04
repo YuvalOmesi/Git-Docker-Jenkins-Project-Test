@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        docker_exist = 'false'
+        docker_exist='false'
     }
     parameters {
       choice choices: ['c.txt', 'py.txt', 'java.txt'], name: 'Choose_File'
