@@ -75,6 +75,9 @@ pipeline {
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>Total duration:</b> ${currentBuild.durationString}</p>
                         <p><b>Status:</b> <strong style="color:green;">SUCCESS</strong></p>
+                        <p>---------------------------------------------</p>
+                        <p><b>File Name:</b>${env.Choose_File}</p>
+                        <p><b>File content</b></p>
                     </div>
                     """
                 )
@@ -93,9 +96,6 @@ pipeline {
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>Total duration:</b> ${currentBuild.durationString}</p>
                         <p><b>Status:</b> <strong style="color:red;">FAILURE</strong></p>
-                        <p>---------------------------------------------</p>
-                        <p><b>File Name:</b>${env.Choose_File}</p>
-                        <p><b>File content</b></p>
                     </div>
                     """
                     )
