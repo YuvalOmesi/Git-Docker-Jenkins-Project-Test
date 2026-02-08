@@ -91,7 +91,7 @@ pipeline {
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>Total duration:</b> ${currentBuild.durationString}</p>
-                        <p><b>Status:</b> <strong style="color:red;">SUCCESS</strong></p>
+                        <p><b>Status:</b> <strong style="color:red;">FAILURE</strong></p>
                     </div>
                     """
                     )
