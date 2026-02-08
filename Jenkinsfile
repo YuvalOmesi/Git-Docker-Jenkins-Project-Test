@@ -71,9 +71,9 @@ pipeline {
                     <div style="border:2px solid #4CAF50; padding:20px; border-radius:10px; background-color:#f9f9f9; font-family:Arial;">
                         <h2 style="color:#4CAF50;">Jenkins Test Successful!</h2>
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
-                        <p>Job Name: ${env.JOB_NAME}</p>
-                        <p>Total duration: ${currentBuild.durationString}</p>
-                        <p>Status: <strong style="color:green;">SUCCESS</strong></p>
+                        <p><b>Job Name:</b> ${env.JOB_NAME}</p>
+                        <p><b>Total duration:</b> ${currentBuild.durationString}</p>
+                        <p><b>Status:</b> <strong style="color:green;">SUCCESS</strong></p>
                     </div>
                     """
                 )
