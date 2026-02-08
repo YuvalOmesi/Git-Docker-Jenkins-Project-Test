@@ -63,7 +63,14 @@ pipeline {
     post {
     always {
         script{
-                echo "post always is run"
+                def successBody = readFile('success.html')
+
+                emailext(
+                    subject: "✅ Jenkins Email Test Successful",
+                    to: "yuval.study42@gmail.com",
+                    mimeType: 'text/html',
+                    body: successBody
+                )
         }
     }
     success {
