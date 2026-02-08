@@ -66,7 +66,7 @@ pipeline {
         script{
                 emailext(
                     subject: "✅ Jenkins Job Successful",
-                    to: "yuval.study42@gmail.com",
+                    to: "${env.MAILTO}",
                     mimeType: 'text/html',
                     body: """
                     <div style="border:2px solid #4CAF50; padding:20px; border-radius:10px; background-color:#f9f9f9; font-family:Arial;">
