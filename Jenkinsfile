@@ -63,9 +63,7 @@ pipeline {
     post {
     always {
         script{
-            if (env.DOCKEREXSIST=='true'){
                 echo "post always is run"
-            }
         }
     }
     success {
