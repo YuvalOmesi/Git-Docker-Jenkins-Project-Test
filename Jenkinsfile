@@ -86,8 +86,8 @@ pipeline {
                     to: "yuval.study42@gmail.com",
                     mimeType: 'text/html',
                     body: """
-                    <div style="border:2px solid #d11818; padding:20px; border-radius:10px; background-color:#f9f9f9; font-family:Arial;">
-                        <h2 style="color:#d11818;">Jenkins Test Failure!</h2>
+                    <div style="border:2px solid #FF0000; padding:20px; border-radius:10px; background-color:#f9f9f9; font-family:Arial;">
+                        <h2 style="color:#FF0000;">Jenkins Test Failure!</h2>
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>Total duration:</b> ${currentBuild.durationString}</p>
