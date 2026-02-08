@@ -64,7 +64,7 @@ pipeline {
     success {
         script{
                 emailext(
-                    subject: "✅ Jenkins Email Test Successful",
+                    subject: "✅ Jenkins Job Successful",
                     to: "yuval.study42@gmail.com",
                     mimeType: 'text/html',
                     body: """
@@ -82,7 +82,7 @@ pipeline {
     failure {
         script{
                 emailext(
-                    subject: "✅ Jenkins Email Test Successful",
+                    subject: "❌ Jenkins Job failure",
                     to: "yuval.study42@gmail.com",
                     mimeType: 'text/html',
                     body: """
