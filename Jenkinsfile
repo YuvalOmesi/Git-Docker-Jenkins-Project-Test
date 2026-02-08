@@ -5,6 +5,7 @@ pipeline {
     }
     parameters {
       choice choices: ['c.txt', 'py.txt', 'java.txt'], name: 'Choose_File'
+      string (name: 'MAILTO', defaultValue: 'yuval.study42@gmail.com', description: 'Enter your email for recive job results')
     }
 
     stages {
@@ -83,7 +84,7 @@ pipeline {
         script{
                 emailext(
                     subject: "❌ Jenkins Job failure",
-                    to: "yuval.study42@gmail.com",
+                    to: "${env.MAILTO}",
                     mimeType: 'text/html',
                     body: """
                     <div style="border:2px solid #FF0000; padding:20px; border-radius:10px; background-color:#f9f9f9; font-family:Arial;">
