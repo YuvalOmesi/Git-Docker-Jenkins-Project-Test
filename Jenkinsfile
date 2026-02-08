@@ -61,7 +61,7 @@ pipeline {
         }
         }
     post {
-    always {
+    success {
         script{
                 emailext(
                     subject: "✅ Jenkins Email Test Successful",
@@ -80,7 +80,7 @@ pipeline {
                 )
         }
     }
-    success {
+    always {
         echo "Total duration: ${currentBuild.durationString}"
             }
         }
