@@ -70,9 +70,8 @@ pipeline {
                     body: """
                     <div style="border:2px solid #4CAF50; padding:20px; border-radius:10px; background-color:#f9f9f9; font-family:Arial;">
                         <h2 style="color:#4CAF50;">Jenkins Test Successful!</h2>
-                        <p>Build Number: ${env.BUILD_NUMBER}</p>
+                        <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p>Job Name: ${env.JOB_NAME}</p>
-                        <p>Triggered by: ${env.BUILD_USER_ID}</p>
                         <p>Total duration: ${currentBuild.durationString}</p>
                         <p>Status: <strong style="color:green;">SUCCESS</strong></p>
                     </div>
