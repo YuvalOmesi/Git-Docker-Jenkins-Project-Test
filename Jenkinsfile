@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    environment{
-        START = sh(script: "date +%s", returnStdout: true).trim()
-        
-    }
+
     parameters {
       choice choices: ['c.txt', 'py.txt', 'java.txt'], name: 'Choose_File'
       string (name: 'MAILTO', defaultValue: 'yuval.study42@gmail.com', description: 'Enter your email for recive job results')
@@ -64,13 +61,9 @@ pipeline {
         }
     post {
     success {
-        script{
+        script{            
 
-                def END = sh(script: "date +%s", returnStdout: true).trim()
-
-                def DURATION = END.toInteger() - env.START.toInteger()
-
-                def DU1 = (currentBuild.duration / 1000) as Integer
+                def DURATION = (currentBuild.duration / 1000) as Integer
 
                 emailext(
                     subject: "✅ Jenkins Job Successful",
@@ -82,9 +75,7 @@ pipeline {
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>User Chosen File Name: </b>${env.Choose_File}</p>
-                        <p><b>Total duration [Jenkins built-in ENV]:</b> ${currentBuild.durationString}</p>
-                        <p><b>Total duration [Manually calculated]:</b> ${DURATION}</p>
-                        <p><b>Total duration [DU1]:</b> ${DU1}</p>
+                        <p><b>Total Duration:</b> ${DURATION} Seconds.</p>
                         <p><b>Status:</b> <strong style="color:green;">SUCCESS</strong></p>
                     </div>
                     """
@@ -93,11 +84,8 @@ pipeline {
     }
     failure {
         script{
-                def END = sh(script: "date +%s", returnStdout: true).trim()
-
-                def DURATION = END.toInteger() - env.START.toInteger()
-
-                def DU1 = (currentBuild.duration / 1000) as Integer
+  
+                  def DURATION = (currentBuild.duration / 1000) as Integer
 
                 emailext(
                     subject: "❌ Jenkins Job failure",
@@ -108,9 +96,7 @@ pipeline {
                         <h2 style="color:#FF0000;">Jenkins Test Failure!</h2>
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
-                        <p><b>Total duration [Jenkins built-in ENV]: </b> ${currentBuild.durationString}</p>
-                        <p><b>Total duration [Manually calculated]: </b> ${DURATION}</p>
-                        <p><b>Total duration [DU1]:</b> ${DU1}</p>
+                        <p><b>Total Duration:</b> ${DURATION} Seconds.</p>
                         <p><b>Status:</b> <strong style="color:red;">FAILURE</strong></p>
                     </div>
                     """
