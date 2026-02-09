@@ -4,7 +4,7 @@ Hello Dima.
 
 This is my Jenkins-Docker-Git project. 
 
-As you suggested, adding some extra steps makes sense, so I built the pipeline like this:
+As you suggested, extra steps are allowed and welcome, so I built the pipeline like this:
 
 The pipeline includes four stages.
 
