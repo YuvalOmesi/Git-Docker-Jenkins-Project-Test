@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment{
-        DOCKEREXSIST='false'
         START = sh(script: "date +%s", returnStdout: true).trim()
         
     }
@@ -26,7 +25,7 @@ pipeline {
 
         stage('Second Job - Check if exist MyContainer') {
             steps {
-                echo "------------ Second Job ------------"
+                echo "------------ Second Job - Check if exist MyContainer ------------"
                 sh '''
                     docker ps -a
                     if docker ps -a | grep -q 'MyContainer'; then
@@ -37,29 +36,29 @@ pipeline {
                         echo "not exist --> continue..."
                     fi
                 '''
-                echo "------------ END Second Job ------------"
+                echo "------------ END Second Job - Check if exist MyContainer ------------"
             }
         }
 
-        stage('3-run DockerFile') {
+        stage('3-Run DockerFile') {
             steps {
-            echo "------------ stage 3 - dockerfile ------------"
+            echo "------------ stage 3 - Run DockerFile ------------"
             sh """
                 docker build --build-arg TESTWORD=${params.Choose_File} -t myimage .
                 docker run -d --name MyContainer myimage
                 docker ps -a
             """
-            echo "------------ END stage 3 - dockerfile ------------"
+            echo "------------ END stage 3 - DockerFile ------------"
             }
         }
         stage('4-check docker again'){
             agent any
             steps{
-                echo "------------ stage 4 - checking ------------"
+                echo "------------ stage 4 - Checking Docker ------------"
                 sh '''
                     docker ps -a
                 '''
-                echo "------------ END stage 4 - checking ------------"
+                echo "------------ END stage 4 - Checking Docker ------------"
             }
         }
         }
