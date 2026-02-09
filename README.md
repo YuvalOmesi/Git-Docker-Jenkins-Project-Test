@@ -21,6 +21,6 @@ The pipeline includes four stages.
     * Before the job starts, the user is asked to choose a file type (C / Java / Python).
     * The user can also enter an email address to receive the results.
 
-# Total Duration - show the job runtime up until the post stage.
+* Total Duration - show the job runtime up until the post stage.
 
          
