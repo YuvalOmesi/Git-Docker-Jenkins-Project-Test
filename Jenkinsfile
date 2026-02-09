@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment{
         DOCKEREXSIST='false'
+        START = sh(script: "date +%s", returnStdout: true).trim()
+        
     }
     parameters {
       choice choices: ['c.txt', 'py.txt', 'java.txt'], name: 'Choose_File'
@@ -17,6 +19,7 @@ pipeline {
                 echo "this is build id: ${BUILD_ID}"
                 echo "this is JOB NAME: ${JOB_NAME}"
                 echo "this is JOB NAME: ${JOB_NAME}"
+                echo "start time: ${START}"
                 sh "docker ps -a"
                 echo "------------ END Information ------------"
             }
