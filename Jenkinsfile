@@ -19,7 +19,6 @@ pipeline {
                 echo "this is build id: ${BUILD_ID}"
                 echo "this is JOB NAME: ${JOB_NAME}"
                 echo "this is JOB NAME: ${JOB_NAME}"
-                echo "start time: ${START}"
                 sh "docker ps -a"
                 echo "------------ END Information ------------"
             }
@@ -67,6 +66,8 @@ pipeline {
     post {
     success {
         script{
+                def END = sh(script: "date +%s", returnStdout: true).trim()
+                def DURATION = sh(script: END.toInteger() - env.START.toInteger()
                 emailext(
                     subject: "✅ Jenkins Job Successful",
                     to: "${env.MAILTO}",
@@ -78,6 +79,7 @@ pipeline {
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>User Chosen File Name: </b>${env.Choose_File}</p>
                         <p><b>Total duration:</b> ${currentBuild.durationString}</p>
+                        <p><b>Total duration:</b> ${DURATION}</p>
                         <p><b>Status:</b> <strong style="color:green;">SUCCESS</strong></p>
                     </div>
                     """
