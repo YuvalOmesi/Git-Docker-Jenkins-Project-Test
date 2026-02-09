@@ -97,6 +97,8 @@ pipeline {
 
                 def DURATION = END.toInteger() - env.START.toInteger()
 
+                def DU1 = (currentBuild.duration / 1000) as Integer
+
                 emailext(
                     subject: "❌ Jenkins Job failure",
                     to: "${env.MAILTO}",
@@ -108,6 +110,7 @@ pipeline {
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>Total duration [Jenkins built-in ENV]: </b> ${currentBuild.durationString}</p>
                         <p><b>Total duration [Manually calculated]: </b> ${DURATION}</p>
+                        <p><b>Total duration [DU1]:</b> ${DU1}</p>
                         <p><b>Status:</b> <strong style="color:red;">FAILURE</strong></p>
                     </div>
                     """
