@@ -81,8 +81,8 @@ pipeline {
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>User Chosen File Name: </b>${env.Choose_File}</p>
-                        <p><b>Total duration:</b> ${currentBuild.durationString}</p>
-                        <p><b>Total duration:</b> ${DURATION}</p>
+                        <p><b>Total duration [Jenkins built-in ENV]:</b> ${currentBuild.durationString}</p>
+                        <p><b>Total duration [Manually calculated]:</b> ${DURATION}</p>
                         <p><b>Status:</b> <strong style="color:green;">SUCCESS</strong></p>
                     </div>
                     """
@@ -91,6 +91,10 @@ pipeline {
     }
     failure {
         script{
+                def END = sh(script: "date +%s", returnStdout: true).trim()
+
+                def DURATION = END.toInteger() - env.START.toInteger()
+
                 emailext(
                     subject: "❌ Jenkins Job failure",
                     to: "${env.MAILTO}",
@@ -100,7 +104,8 @@ pipeline {
                         <h2 style="color:#FF0000;">Jenkins Test Failure!</h2>
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
-                        <p><b>Total duration:</b> ${currentBuild.durationString}</p>
+                        <p><b>Total duration [Jenkins built-in ENV]: </b> ${currentBuild.durationString}</p>
+                        <p><b>Total duration [Manually calculated]: </b> ${DURATION}</p>
                         <p><b>Status:</b> <strong style="color:red;">FAILURE</strong></p>
                     </div>
                     """
