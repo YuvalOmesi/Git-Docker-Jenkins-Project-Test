@@ -69,7 +69,7 @@ pipeline {
 
                 def END = sh(script: "date +%s", returnStdout: true).trim()
 
-                def DURATION = sh(script: END.toInteger() - env.START.toInteger())
+                def DURATION = END.toInteger() - env.START.toInteger()
 
                 emailext(
                     subject: "✅ Jenkins Job Successful",
