@@ -75,7 +75,7 @@ pipeline {
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
                         <p><b>User Chosen File Name: </b>${env.Choose_File}</p>
-                        <p><b>Total Duration:</b> ${DURATION} Seconds.</p>
+                        <p><b>Total Duration:</b> ${DURATION} Seconds</p>
                         <p><b>Status:</b> <strong style="color:green;">SUCCESS</strong></p>
                     </div>
                     """
@@ -96,7 +96,7 @@ pipeline {
                         <h2 style="color:#FF0000;">Jenkins Test Failure!</h2>
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
-                        <p><b>Total Duration:</b> ${DURATION} Seconds.</p>
+                        <p><b>Total Duration:</b> ${DURATION} Seconds</p>
                         <p><b>Status:</b> <strong style="color:red;">FAILURE</strong></p>
                     </div>
                     """
