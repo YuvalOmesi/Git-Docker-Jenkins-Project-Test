@@ -7,10 +7,10 @@ This is my Jenkins-Docker-Git project.
 As you suggested, adding some extra steps makes sense, so I built the pipeline like this:
 
 The pipeline includes four stages:
-    1) General Info - Shows basic information about the job and the selected options.
-    2) Check if MyContainer Exists - Checks whether a Docker container named MyContainer already exists.
-    3) Run Dockerfile - Builds and runs the Docker image using the Dockerfile.
-    4) Docker Check - Runs docker ps -a as an extra check to verify the container status.
+1) General Info - Shows basic information about the job and the selected options.
+2) Check if MyContainer Exists - Checks whether a Docker container named MyContainer already exists.
+3) Run Dockerfile - Builds and runs the Docker image using the Dockerfile.
+4) Docker Check - Runs docker ps -a as an extra check to verify the container status.
 
     5) Post Actions (Success / Failure)   
         * An email is sent with details about the job and the selected file.
