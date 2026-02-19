@@ -14,7 +14,6 @@ pipeline {
                 echo "this is build number: ${BUILD_NUMBER}"
                 echo "this is build id: ${BUILD_ID}"
                 echo "this is JOB NAME: ${JOB_NAME}"
-                echo "this is JOB NAME: ${JOB_NAME}"
                 sh "docker ps -a"
                 echo "------------ END Information ------------"
             }
