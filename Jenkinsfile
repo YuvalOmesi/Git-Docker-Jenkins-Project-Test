@@ -13,7 +13,9 @@ pipeline {
                 echo "this is your choice: ${params.Choose_File}"
                 echo "this is build number: ${BUILD_NUMBER}"
                 echo "this is build id: ${BUILD_ID}"
+                echo "The job run on: ${NODE_NAME}"
                 echo "this is JOB NAME: ${JOB_NAME}"
+                
                 sh "docker ps -a"
                 echo "------------ END Information ------------"
             }
@@ -95,6 +97,7 @@ pipeline {
                         <h2 style="color:#FF0000;">Jenkins Test Failure!</h2>
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
+                        <p><b>Run On Node:</b> ${env.NODE_NAME}</p>
                         <p><b>Total Duration:</b> ${DURATION} Seconds</p>
                         <p><b>Status:</b> <strong style="color:red;">FAILURE</strong></p>
                     </div>
