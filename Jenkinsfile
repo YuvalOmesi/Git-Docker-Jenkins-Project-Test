@@ -10,12 +10,11 @@ pipeline {
         stage('First Job - Information') {
             steps {
                 echo "------------ Information ------------"
-                echo "this is your choice: ${params.Choose_File}"
-                echo "this is build number: ${BUILD_NUMBER}"
-                echo "this is build id: ${BUILD_ID}"
-                echo "The job run on: ${NODE_NAME}"
-                echo "this is JOB NAME: ${JOB_NAME}"
-                
+                echo "This Is Your Choice: ${params.Choose_File}"
+                echo "This Is Build Number: ${BUILD_NUMBER}"
+                echo "This is build ID: ${BUILD_ID}"
+                echo "The Job Run On: ${NODE_NAME}"
+                echo "This is Job Name: ${JOB_NAME}"
                 sh "docker ps -a"
                 echo "------------ END Information ------------"
             }
