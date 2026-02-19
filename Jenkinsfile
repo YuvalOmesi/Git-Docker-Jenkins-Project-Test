@@ -75,6 +75,7 @@ pipeline {
                         <h2 style="color:#4CAF50;">Jenkins Test Successful!</h2>
                         <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
                         <p><b>Job Name:</b> ${env.JOB_NAME}</p>
+                        <p><b>Run On Node:</b> ${env.NODE_NAME}</p>
                         <p><b>User Chosen File Name: </b>${env.Choose_File}</p>
                         <p><b>Total Duration:</b> ${DURATION} Seconds</p>
                         <p><b>Status:</b> <strong style="color:green;">SUCCESS</strong></p>
